@@ -1,0 +1,46 @@
+{% extends 'main/base.html'%}
+
+{% block title%}
+Course Page
+{% endblock %}
+
+
+{% block content%}
+
+    <h1>The Course Name is: {{ course.name }}</h1>
+
+<form action="#" method = "POST">
+    {% csrf_token %}
+
+    <ul>
+        {% for person in course.participant_set.all %} <!-- without () for all-->
+            {% if person.payed == True %}
+                <li> <input type="checkbox" name="c{{person.id}}"  value="clicked" checked> {{person.participant_name}} - {{person.payed}}</li>
+            {% else %}
+                <li> <input type="checkbox" name="c{{person.id}}" value="clicked" >  {{person.participant_name}} - {{person.payed}}</li>
+            {%endif%}            
+        {%endfor%}
+    </ul>
+
+
+    <button type="submit" name="savebtn" value="save">Save Checkbox</button>
+    <br/> <br/> <br/>
+
+
+    <input type="text" name="partinametxt" >
+    <button type="submit" name="newpartibtn" value="save">New Participant</button>
+
+</form>
+
+
+
+
+    <h2>Check Boxes in HTML</h2>
+    <input type="checkbox" name=""  value="clicked" checked>
+    <input type="checkbox" name="" value="clicked" >
+{% endblock %}
+
+
+
+
+

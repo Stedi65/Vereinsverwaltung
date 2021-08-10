@@ -1,0 +1,44 @@
+{% extends 'main/base.html' %}
+
+{% block title%}
+
+{% endblock title%}
+
+{% block content%}
+
+<br></br>
+<br></br>
+<h2>Mitgliederliste</h2>
+<br></br>
+<br></br>
+
+<table class="table">
+    <thead>
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">Vorname</th>
+        <th scope="col">Nachname</th>
+        <th scope="col">E-Mail</th>
+        <th scope="col">Beitragsgruppe</th>
+        <th scope="col">Eintrittsdatum</th>
+      </tr>
+    </thead>
+    <tbody>
+        
+<!-- Add Python Code-->
+{% for mitglied in mitglieder %}
+
+    <tr>
+      <th scope="row">{{mitglied.id}}</th>
+      <td>{{mitglied.vorname}}</td>
+      <td>{{mitglied.nachname}}</td>
+      <td>{{mitglied.email}}</td>
+      <td>{{mitglied.beitragsgruppe_id}}</td>
+      <td>{{mitglied.eintritts_datum}}</td>
+    </tr>
+
+{% endfor %}
+
+</tbody>
+</table>
+{%endblock content%}
